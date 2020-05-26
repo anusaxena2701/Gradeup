@@ -6,6 +6,7 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.touch.TouchActions;
 import org.testng.Assert;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -29,8 +30,11 @@ public class testCase1 extends Base {
 	
 			// TODO Auto-generated method stub
 		
+			
 		@Test
 		public void mainPageTest() throws IOException{
+		service=startServer();	
+		
 		AndroidDriver<AndroidElement> driver = capabilities("GradeupApp");
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		/**
@@ -125,6 +129,7 @@ public class testCase1 extends Base {
 		System.out.println(courseName);
 		String coursePrice=ssPage.cPrice.getText();
 		System.out.println(coursePrice);
+		service.stop();
 		}
 		
 
